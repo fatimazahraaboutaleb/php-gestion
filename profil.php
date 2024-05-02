@@ -11,19 +11,19 @@ if($id){
 }
 
 
-if(isset($_POST["action"]) && @$_POST["action"]=="modify"){
-    $id1=@$_POST["id"];
-    $first_name = @$_POST["first_name"];
-    $last_name = @$_POST["last_name"];
-    $cin = @$_POST["cin"];
-    $email = @$_POST["email"];
-    $phone = @$_POST["phone"];
+if(isset($_GET["action"]) && @$_GET["action"]=="modify"){
+    $id1=@$_GET["id"];
+    $first_name = @$_GET["first_name"];
+    $last_name = @$_GET["last_name"];
+    $cin = @$_GET["cin"];
+    $email = @$_GET["email"];
+    $phone = @$_GET["phone"];
     $query = $conn->prepare("UPDATE employees SET first_name=?, last_name=?, cin=?, email=?, phone=? WHERE id=?");
     $query->execute([$first_name, $last_name, $cin, $email, $phone, $id1]);
     header("Location: profil.php");
 }
 
-if(@$_POST["action"]=="logout"){
+if(@$_GET["action"]=="logout"){
     session_unset();
     header("Location:login.php");
 }
@@ -53,18 +53,14 @@ if(@$_POST["action"]=="logout"){
         <input type="text" id="salary" name="salary" value="<?=$user->salary?>" readonly>
         <label for="pass">Password:</label>
         <input type="password" id="pass" name="pass" value="<?=$user->password?>">
-    </form>
-    <div class="buttons">
-    <form method="POST">
         <input type="hidden" name="action" value="modify">
         <input type="hidden" name="id" value="<?= $user->id;?>">
         <button>Edit</button>
     </form>
-    <form method="POST">
+    <form action="">
         <input type="hidden" name="action" value="logout">
-        <button>Logout</button>
+        <button class="logout">Logout</button>
     </form>
-    </div>
     </div>
 </body>
 </html>

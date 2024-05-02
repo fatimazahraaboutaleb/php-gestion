@@ -43,11 +43,9 @@ if(@$_GET["action"]=="edit"){
         <input type="text" id="phone" name="phone" value="<?=$user->phone?>">
         <label for="salary">Salary:</label>
         <input type="text" id="salary" name="salary" value="<?=$user->salary?>">
-        <form action="">
-            <input type="hidden" name="action" value="edit">
-            <input type="hidden" name="id" value="<?= $user->id;?>">
-            <button>Edit</button>
-        </form>
+        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="id" value="<?= $user->id;?>">
+        <button>Edit</button>
     </form>
     </div>
 </body>
