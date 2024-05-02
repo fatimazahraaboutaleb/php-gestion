@@ -26,8 +26,8 @@ if(@$_GET["action"]=="delete"){
         }
         .title form{
             position:absolute;
-            top:6%;
-            right:40%;
+            top:5%;
+            right:38%;
         }
         body{
             color: white;
@@ -38,6 +38,15 @@ if(@$_GET["action"]=="delete"){
             flex-direction:column;
             justify-content:center;
             align-items:center;
+        }
+        
+        button{
+            padding:4px 16px;
+            margin:5px 0;
+            border: none;
+            border-radius: 10px 20px;
+            background-color: rgba(255, 65, 170, 0.829);
+            color: white;
         }
     </style>
 </head>
