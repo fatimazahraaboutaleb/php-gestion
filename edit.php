@@ -8,6 +8,7 @@ $query->execute([$id]);
 $user=$query->fetchObject();
 
 if(@$_GET["action"]=="edit"){
+    $id1=@$_GET["id"];
     $first_name = @$_GET["first_name"];
     $last_name = @$_GET["last_name"];
     $cin = @$_GET["cin"];
@@ -15,7 +16,7 @@ if(@$_GET["action"]=="edit"){
     $phone = @$_GET["phone"];
     $salary =@$_GET["salary"];
     $query = $conn->prepare("UPDATE employees SET first_name=?, last_name=?, cin=?, email=?, phone=? ,salary=? WHERE id=?");
-    $query->execute([$first_name, $last_name, $cin, $email, $phone, $salary, $id]);
+    $query->execute([$first_name, $last_name, $cin, $email, $phone, $salary, $id1]);
     header("Location: dashbord.php?id=$id");
 }
 ?>
@@ -44,6 +45,7 @@ if(@$_GET["action"]=="edit"){
         <input type="text" id="salary" name="salary" value="<?=$user->salary?>">
         <form action="">
             <input type="hidden" name="action" value="edit">
+            <input type="hidden" name="id" value="<?= $user->id;?>">
             <button>Edit</button>
         </form>
     </form>

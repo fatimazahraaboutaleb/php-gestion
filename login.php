@@ -31,12 +31,55 @@ if (@$_POST["login"] && @$_POST["password"]){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        *{
+            box-sizing:border-box;
+            margin:0;
+            padding:0;
+        }
+        body{
+            color:white;
+            background-color: rgba(0, 0, 0, 0.89);
+        }
+        form{
+            position:absolute;
+            top:30%;
+            left:38%;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            width:250px;
+            height:auto;
+            margin:auto;
+            border:1px solid grey;
+            border-radius: 15px;
+            padding:20px;
+        }
+        input{
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding:5px 20px;
+            margin: 8px 0px;
+            background-color: rgba(138, 139, 139, 0.61);
+            margin:10px 0;
+        }
+        button{    
+            padding:4px 50px;
+            margin:10px;
+            border: none;
+            border-radius: 10px 20px;
+            background-color: rgba(255, 65, 170, 0.829);
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <form method="POST">
-        <label for="login">USERNAME</label>
+        <label for="login">Username:</label>
         <input type="text" name="login" id="login">
-        <label for="pass">PASSWORD</label>
+        <label for="pass">Password:</label>
         <input type="password" name="password" id="pass">
         <button>Login</button>
     </form>

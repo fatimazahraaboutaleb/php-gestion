@@ -11,6 +11,7 @@ if(@$_GET["action"]=="delete"){
     $id=@$_GET["id"];
     $query=$conn->prepare("DELETE FROM employees WHERE id=?");
     $query->execute([$id]);
+    header("Location: dashbord.php");
 }
 ?>
 <!DOCTYPE html>
@@ -19,9 +20,35 @@ if(@$_GET["action"]=="delete"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .title{
+            display:flex;
+        }
+        .title form{
+            position:absolute;
+            top:6%;
+            right:40%;
+        }
+        body{
+            color: white;
+            background-color: rgba(0, 0, 0, 0.89);
+        }
+        .content{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+        }
+    </style>
 </head>
 <body>
-    <h1>dashbord</h1> <button>add</button>
+    <div class="content">
+    <div class="title">
+        <h1>dashbord</h1>
+        <form action="add.php">
+            <button>add</button>
+        </form>
+    </div>
     <table>
         <tr>
             <th>first name</th>
@@ -54,5 +81,6 @@ if(@$_GET["action"]=="delete"){
             </tr>
         <?php endforeach;?>
     </table>
+    </div>
 </body>
 </html>
